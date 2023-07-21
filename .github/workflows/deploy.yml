@@ -12,8 +12,8 @@ jobs:
   test:
     env: #defining on job level
       MONGODB_CLUSTER_ADDRESS: cluster0.qsmur5d.mongodb.net
-      MONGODB_USERNAME: aseelaldallal
-      MONGODB_PASSWORD: jhcVq5wQkEi6PA1R
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
     environment: testing
     runs-on: ubuntu-latest
     steps:
@@ -39,5 +39,5 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" # this is not accessible
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
